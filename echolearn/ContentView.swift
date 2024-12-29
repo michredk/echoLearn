@@ -7,38 +7,52 @@
 
 import SwiftUI
 import featureNote
+import model
 
 struct ContentView: View {
+    @State private var notes = Note.mockedData
+    @State private var contentSize: CGSize = .zero
+
     var body: some View {
-        GeometryReader { geometry in
-            RoundedRectangle(cornerRadius: 25)
-                .fill(
-                    LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color.accent,
-                            Color(UIColor.systemBackground),
-                            Color.accent,
-                        ]),
-                        startPoint: .topLeading,
-                        endPoint: .bottom
-                    )
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 40.0).fill(
-                        Color(UIColor.systemBackground)
-                    ).padding(.horizontal, 15).padding(.top, 60).padding(
-                        .bottom, 20).overlay(
-                            VStack {
-                                Text("Welcome to EchoLearn!")
-                            }
-                        )
-                )
+        ZStack {
+            // Apply gradient to the background
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.accent,
+                    Color(UIColor.systemBackground),
+                    Color.accent,
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottom
+            )
+            .edgesIgnoringSafeArea(.all)
+
+            // Foreground content
+            RoundedRectangle(cornerRadius: 40)
+                .fill(Color(UIColor.systemBackground))
+                .overlay {
+                    VStack {
+                        if notes.isEmpty {
+                            ContentUnavailableView(label: {
+                                Label("No notes", systemImage: "doc.plaintext")
+                                    .foregroundColor(Color.alter)
+                            })
+                        } else {
+                            NotesScreen(notes: notes)
+                                .padding()
+                                .background(Color(UIColor.systemBackground))
+                                .cornerRadius(40)
+                        }
+                    }
+
+                }
+                .padding(.horizontal, 15)
+                .clipped()
         }
-        .edgesIgnoringSafeArea(.all)
     }
+
 }
 
 #Preview {
     ContentView()
 }
-
