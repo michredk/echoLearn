@@ -7,6 +7,7 @@
 
 import SwiftUI
 import model
+import common
 
 public struct NotesScreen: View {
     
@@ -15,8 +16,15 @@ public struct NotesScreen: View {
     public var body: some View {
         ScrollView{
             VStack {
-                ForEach(notes, id: \.id){ note in
-                    NoteRow(note: note, pinned: false)
+                if notes.isEmpty {
+                    ContentUnavailableView(label: {
+                        Label("No notes", systemImage: "doc.plaintext")
+                            .foregroundColor(Color.Common.alterColor)
+                    })
+                } else {
+                    ForEach(notes, id: \.id){ note in
+                        NoteRow(note: note, pinned: false)
+                    }
                 }
             }
         }.scrollClipDisabled()
@@ -28,5 +36,5 @@ public struct NotesScreen: View {
 }
 
 #Preview {
-    NotesScreen(notes: Note.mockedData)
+    NotesScreen(notes: Note.emptyList)
 }

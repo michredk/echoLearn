@@ -4,32 +4,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "featureNote",
-    platforms: [
-        .iOS(.v17)
-    ],
+    name: "common",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "featureNote",
-            targets: ["featureNote"]),
+            name: "common",
+            targets: ["common"]),
     ],
-    dependencies: [
-           .package(path: "../model"),
-           .package(path: "../common"),
-       ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "featureNote",
-            dependencies: [
-                            "model",
-                            "common"
-                        ]),
+            name: "common",
+            resources: [.process("Resources")]
+        ),
         .testTarget(
-            name: "featureNoteTests",
-            dependencies: ["featureNote"]
+            name: "commonTests",
+            dependencies: ["common"]
         ),
     ]
 )

@@ -32,19 +32,11 @@ struct ContentView: View {
                 .fill(Color(UIColor.systemBackground))
                 .overlay {
                     VStack {
-                        if notes.isEmpty {
-                            ContentUnavailableView(label: {
-                                Label("No notes", systemImage: "doc.plaintext")
-                                    .foregroundColor(Color.alter)
-                            })
-                        } else {
-                            NotesScreen(notes: notes)
-                                .padding()
-                                .background(Color(UIColor.systemBackground))
-                                .cornerRadius(40)
-                        }
+                        NotesScreen(notes: notes)
+                            .padding()
+                            .background(Color(UIColor.systemBackground))
+                            .cornerRadius(40)
                     }
-
                 }
                 .padding(.horizontal, 15)
                 .clipped()

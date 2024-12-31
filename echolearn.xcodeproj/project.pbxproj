@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		EE0C67B12D14AC8400789927 /* featureNote */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = featureNote; sourceTree = "<group>"; };
+		EE37114D2D234609004478C1 /* common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = common; sourceTree = "<group>"; };
 		EEB8BFB42D135911002A5C7E /* echolearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = echolearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB8BFC42D135913002A5C7E /* echolearnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = echolearnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB8BFCE2D135913002A5C7E /* echolearnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = echolearnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +86,7 @@
 		EEB8BFAB2D135911002A5C7E = {
 			isa = PBXGroup;
 			children = (
+				EE37114D2D234609004478C1 /* common */,
 				EEC6F1A72D14C7CF00597C89 /* model */,
 				EE0C67B12D14AC8400789927 /* featureNote */,
 				EEB8BFB62D135911002A5C7E /* echolearn */,
@@ -192,6 +194,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
